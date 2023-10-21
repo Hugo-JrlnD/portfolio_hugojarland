@@ -8,7 +8,7 @@
               <v-col cols="5">
                 <div style="position: relative" class="mt-0">
                   <h1 class="text-black">Hello, I am Hugo Jarland</h1>
-                  <span class="text-black">A Creative Technologist Engineer</span><br />
+                  <span class="text-black">A Creative Technologist Engineer Student</span><br />
                 </div>
               </v-col>
             </v-row>
@@ -30,22 +30,17 @@
             </v-row>
           </div>
         </v-col>
-        
-
-
-
-
-
 
         <br>
         <br>
         <v-divider></v-divider>
-        <v-col cols="12" sm="12" id="services">
+        <v-col cols="12" sm="12" id="projects">
           <h1 class="mt-8" style="text-align: center;">Projects</h1>
           <br>
           <div class="d-flex justify-center mb-6">
             <v-btn class="mr-2" variant="tonal" @click="filterItems('Agriculture')">Agriculture</v-btn>
             <v-btn class="mr-2" variant="tonal">Architecture</v-btn>
+            <v-btn class="mr-2" variant="tonal">Leather</v-btn>
             <v-btn class="mr-2" variant="tonal">Others</v-btn>
           </div>
         </v-col>
@@ -59,6 +54,16 @@
                   <v-img :src="items[0].img" height="300px" cover text @click="DisplayLarge(this.items[0].imgLarge)"></v-img>
                   <v-card-title text @click="goToDvicAquaponics()">{{ "The Aquaponic Platform" }}</v-card-title>
                   <v-card-subtitle style="white-space: pre-line">{{ "An educational, modular and adjustable aquaponic system to reconnect people with food production" }}</v-card-subtitle>
+                </v-card>
+              </v-hover>
+            </v-col>
+
+            <v-col cols="3" md="4" :class="{'is-active': items[1].category === category}">
+              <v-hover v-slot="{ isHovering, props }">
+                <v-card :elevation="isHovering ? 12 : 2" :class="{'on-hover' : isHovering}" v-bind="props">
+                  <v-img :src="items[6].img" height="300px" cover text @click="DisplayLarge(this.items[6].img)"></v-img>
+                  <v-card-title text @click="goToDvicPFS()">{{ "Passive Filtration System" }}</v-card-title>
+                  <v-card-subtitle style="white-space: pre-line">{{ "Manufacturing of a low maintenance filtration system and passive filters in order to save energy" }}</v-card-subtitle>
                 </v-card>
               </v-hover>
             </v-col>
@@ -93,6 +98,22 @@
               </v-hover>
             </v-col>
 
+            <v-col cols="3" md="4" :class="{'is-active': items[1].category === category}">
+              <v-hover v-slot="{ isHovering, props }">
+                <v-card :elevation="isHovering ? 12 : 2" :class="{'on-hover' : isHovering}" v-bind="props">
+                  <v-img :src="items[8].img" height="300px" cover text @click="DisplayLarge(this.items[8].img)"></v-img>
+                  <v-card-title>{{ "Upcoming projects" }}</v-card-title>
+                  <v-card-subtitle style="white-space: normal; word-wrap: break-word">
+                    {{ "- The portable coat rack" }}
+                    <br>
+                    {{ "- The cigarette case with integrated ashtray" }}
+                    <br>
+                    {{ "- The sock hook" }}
+                  </v-card-subtitle>
+                </v-card>
+              </v-hover>
+            </v-col>
+
           </v-row>
         </v-col>
         <br>
@@ -110,9 +131,10 @@
                 <span class="text-caption">+33 6 95 78 32 78</span><br />
                 <v-btn icon="fas fa-envelope" class="mt-2" variant="outlined"></v-btn><br />
                 <span class="text-caption">hugo.jarland@edu.devinci.fr</span><br />
-                <v-btn icon="fa fa-linkedin" class="mt-2" variant="outlined" href="https://www.linkedin.com/in/hugo-jarland-9a4a9a1bb/"></v-btn><br />
+                <v-btn icon="fab fa-linkedin-in" class="mt-2" variant="outlined" href="https://www.linkedin.com/in/hugo-jarland-9a4a9a1bb/"></v-btn><br />
                 <span class="text-caption">Hugo Jarland</span><br />
               </div>
+              
             </v-col>
             <v-col cols="12" sm="8">
               <h1 class="mt-8">For more information</h1>
@@ -171,6 +193,9 @@ export default defineComponent({
     goToDvicTLP() {
       window.open("https://dvic.devinci.fr/quickstarter/the-leather-page", "_blank");
     },
+    goToDvicPFS() {
+      window.open("https://dvic.devinci.fr/tutorial/passive-filters", "_blank");
+    },
     DisplayLarge(photo) {
       window.open(photo, "_self");
     },
@@ -217,6 +242,9 @@ items: [
   },
   {
     img: "i11.png",
+  },
+  {
+    img: "i12.png",
   },
   {
     img: "photo_profil.png",
